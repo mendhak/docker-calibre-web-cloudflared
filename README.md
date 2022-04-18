@@ -1,5 +1,7 @@
-This is my basic setup for a public facing Calibre Web server, exposed through a Cloudflare Tunnel.  
+This is my setup for a public facing Calibre Web server, exposed through a Cloudflare Tunnel.  
 It's all contained within docker compose, so everything needed to run it is in one place. 
+
+## About
 
 In this example the domain is `mylibrary.example.com` which tunnels to the nginx container which proxies to the calibre web container.  
 
@@ -15,6 +17,8 @@ Login to Cloudflare first
     docker run -v $PWD/cloudflared:/.cloudflared erisamoe/cloudflared login
 
 This creates a `cloudflared` directory locally with a .pem in it, that's the login credentials needed to manage the tunnel.
+
+Edit the `docker-compose.yml` file to point it at a domain that you manage on Cloudflare, instead of `mylibrary.example.com`.  
 
 Then, start the containers. 
 
