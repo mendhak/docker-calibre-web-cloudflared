@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -euxo pipefail
+
+echo "Check if already running" | tee syncbooks.log
+pgrep -x rclone >/dev/null && echo "RClone already running. Exiting." | tee -a syncbooks.log
+
+echo "RClone Google Drive Books" | tee -a syncbooks.log
+rclone --checkers 4 --transfers 2 --progress --log-file /home/pi/calibre-server/syncbooks.log --log-level INFO sync gdrive:Documents/EBooks/ Books/
+
