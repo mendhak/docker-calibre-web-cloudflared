@@ -32,4 +32,4 @@ Watch the logs as the initial start takes a few minutes
 
     docker-compose logs -f
 
-
+When it's stopped updating, you can browse to https://mylibrary.example.com 
