@@ -1,0 +1,5 @@
+*.log
+Books/
+data/
+cloudflared/
+syncbooks.sh
