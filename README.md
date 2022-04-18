@@ -8,7 +8,7 @@ The nginx container sets the robots.txt and noindex tags.  It also sets proxy he
 The calibre-web container points at a `Books/` directory locally, so you'll need to sync your books to it via another mechanism.  I use Google Drive so a sample rclone script `syncbooks.sh.example` is included.
 
 
-## Pre-setup
+## Setup
 
 Login to Cloudflare first
 
@@ -16,15 +16,7 @@ Login to Cloudflare first
 
 This creates a `cloudflared` directory locally with a .pem in it, that's the login credentials needed to manage the tunnel.
 
-List and delete any tunnels named mylibrary, if they exist. 
-
-    docker run -v $PWD/cloudflared:/etc/cloudflared erisamoe/cloudflared tunnel list
-    docker run -v $PWD/cloudflared:/etc/cloudflared erisamoe/cloudflared tunnel delete mylibrary
-
-
-## Setup
-
-That's it, start the containers. 
+Then, start the containers. 
 
     docker-compose up -d 
 
@@ -33,3 +25,13 @@ Watch the logs as the initial start takes a few minutes
     docker-compose logs -f
 
 When it's stopped updating, you can browse to https://mylibrary.example.com 
+
+
+## Troubleshooting 
+
+If this is a new setup reusing an existing tunnel, you'll need to clear it out first.  List and delete any tunnels named mylibrary, if they exist.
+
+    docker run -v $PWD/cloudflared:/etc/cloudflared erisamoe/cloudflared tunnel list
+    docker run -v $PWD/cloudflared:/etc/cloudflared erisamoe/cloudflared tunnel delete mylibrary
+
+Then follow the setup instructions
