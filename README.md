@@ -1,7 +1,11 @@
 This is my basic setup for a public facing Calibre Web server, exposed through a Cloudflare Tunnel.  
 It's all contained within docker compose, so everything needed to run it is in one place. 
 
-In this example the domain is `mylibrary.example.com` which points at the calibre web container.  
+In this example the domain is `mylibrary.example.com` which tunnels to the nginx container which proxies to the calibre web container.  
+
+The nginx container sets the robots.txt and noindex tags.  It also sets proxy headers to tell the calibre-web server to use https URLs, necessary for OAuth logins. 
+
+The calibre-web container points at a `Books/` directory locally, so you'll need to sync your books to it via another mechanism.  I use Google Drive so a sample rclone script `syncbooks.sh.example` is included.
 
 
 ## Pre-setup
