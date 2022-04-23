@@ -8,7 +8,7 @@ services:
     
     #command: --hostname books.mendhak.com --url http://nginx:80  
     # ^-- doesn't seem to work? https://github.com/Erisa/cloudflared-docker/issues/5
-    command: tunnel run --url http://nginx:80 books
+    command: tunnel run --url http://nginx:80 mylibrary
     depends_on:
       - nginx
 
