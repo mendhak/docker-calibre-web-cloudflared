@@ -5,7 +5,7 @@ services:
     container_name: calibre-web-cloudflared
     volumes:
       - ./cloudflared:/etc/cloudflared
-    command: --hostname mylibrary.mendhak.com --name mylibrary --url http://nginx:80  
+    command: --hostname mylibrary.example.com --name mylibrary --url http://nginx:80  
     # ^-- https://github.com/Erisa/cloudflared-docker/issues/5
     depends_on:
       - nginx
