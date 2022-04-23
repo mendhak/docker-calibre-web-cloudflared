@@ -18,21 +18,6 @@ Login to Cloudflare first
 
 This creates a `cloudflared` directory locally with a .pem in it, that's the login credentials needed to manage the tunnel.
 
-Create the tunnel
-
-    docker run -v $PWD/cloudflared:/etc/cloudflared erisamoe/cloudflared tunnel create mylibrary
-    docker run -v $PWD/cloudflared:/etc/cloudflared erisamoe/cloudflared tunnel route dns mylibrary mylibrary.example.com
-
-Create a config file
-
-    sudo nano cloudflared/config.yml
-
-Add the contents
-
-
-    tunnel: b9xxxxxx-xxxx-xxxx-xxxx-xxxxxxx
-    credentials-file: /etc/cloudflared/b9xxxxxx-xxxx-xxxx-xxxx-xxxxxxx.json
-
 
 Then, start the containers. 
 
