@@ -33,9 +33,6 @@ Add the contents
     tunnel: b9xxxxxx-xxxx-xxxx-xxxx-xxxxxxx
     credentials-file: /etc/cloudflared/b9xxxxxx-xxxx-xxxx-xxxx-xxxxxxx.json
 
-    ingress:
-      - hostname: mylibrary.example.com
-        service: http://nginx:80
 
 Then, start the containers. 
 
