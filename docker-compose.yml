@@ -3,6 +3,7 @@ services:
   cloudflared:
     image: erisamoe/cloudflared
     container_name: calibre-web-cloudflared
+    restart: unless-stopped
     volumes:
       - ./cloudflared:/etc/cloudflared
     command: --hostname mylibrary.example.com --name mylibrary --url http://nginx:80  
@@ -13,6 +14,7 @@ services:
   nginx:
     container_name: calibre-web-nginx
     image: nginx:latest
+    restart: unless-stopped
     ports:
       - "8082:80"
     volumes:
