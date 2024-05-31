@@ -6,7 +6,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./cloudflared:/etc/cloudflared
-    command: --hostname mylibrary.example.com --name mylibrary --url http://nginx:80  
+    command: --hostname mylibrary.example.com --name mylibrary --url http://nginx:80
     # ^-- https://github.com/Erisa/cloudflared-docker/issues/5
     depends_on:
       - nginx
@@ -19,15 +19,16 @@ services:
       - "8082:80"
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
-    
+
   calibre-web:
-    image: ghcr.io/linuxserver/calibre-web:arm32v7-latest
+    image: ghcr.io/linuxserver/calibre-web:0.6.21
     container_name: calibre-web
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/London
-      - DOCKER_MODS=linuxserver/calibre-web:calibre #optional
+      - DOCKER_MODS=linuxserver/mods:universal-calibre
+      #- DOCKER_MODS=linuxserver/calibre-web:calibre #optional
       - OAUTHLIB_RELAX_TOKEN_SCOPE=1 #optional
     volumes:
       - ${PWD}/data:/config
