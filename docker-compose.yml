@@ -28,7 +28,9 @@ services:
       - PGID=1000
       - TZ=Europe/London
       - DOCKER_MODS=linuxserver/mods:universal-calibre
-      #- DOCKER_MODS=linuxserver/calibre-web:calibre #optional
+      #- DOCKER_MODS=linuxserver/mods:universal-calibre|ghcr.io/themepark-dev/theme.park:calibre-web-develop
+      #- TP_DOMAIN=theme-park.dev
+      #- TP_THEME=space-gray
       - OAUTHLIB_RELAX_TOKEN_SCOPE=1 #optional
     volumes:
       - ${PWD}/data:/config
